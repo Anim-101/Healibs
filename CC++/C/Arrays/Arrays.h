@@ -248,3 +248,88 @@ void rightRotateArray(struct Array *array, int rotate)
         rotate--;
     }
 }
+
+// Union operation between two unsorted arrays.
+struct Array *unSortedUnion(struct Array *arrayOne, struct Array *arrayTwo)
+{
+    int i = 0, j = 0, k = 0;
+
+    struct Array *array = (struct Array *) malloc(sizeof(struct Array));
+
+    for(i = 0; i < arrayOne; i++)
+    {
+        array->array[i] = arrayOne->array[i];
+    }
+
+    int l = i;
+
+    while(j < arrayTwo->length)
+    {
+        k = 0;
+
+        while(k < i)
+        {
+            if(array->array[k] == arrayTwo->array[j])
+            {
+                break;
+            }
+
+            k++;
+        }
+
+        if(k == i)
+        {
+            array->array[l++] = arrayTwo->array[j];
+        }
+
+        j++;
+    }
+
+    array->length = l;
+
+    array->size = l;
+
+    return array;
+}
+
+// Union operation between two sorted arrays.
+struct Array *sortedUnion(struct Array *arrayOne, struct Array *arrayTwo)
+{
+    int i = 0, j = 0, k = 0;
+
+    struct Array *array = (struct Array *) malloc(sizeof(struct Array));
+
+    while(i < arrayOne->length && j < arrayTwo->length)
+    {
+        if(arrayOne->array[i] < arrayTwo->array[j])
+        {
+            array->array[k++] = arrayOne->array[i++];
+        }
+        else if(arrayTwo->array[j] < arrayOne->array[i])
+        {
+            array->array[k++] = arrayTwo->array[j++];
+        }
+        else
+        {
+            array->array[k++] = arrayOne->array[i++];
+
+            j++;
+        }
+    }
+
+    for(; i < arrayOne->length; i++)
+    {
+        array->array[k++] = arrayOne->array[i];
+    }
+
+    for(; j < arrayTwo->length; j++)
+    {
+        array->array[k++] = arrayTwo->array[j];
+    }
+
+    array->length = k;
+
+    array->size = k;
+
+    return array;
+}
