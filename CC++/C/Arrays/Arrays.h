@@ -12,7 +12,7 @@ struct Array
     int length;
 };
 
-// Displays all available elements from the array which is passed as parameter.
+// Displays all available elements from the array.
 void Display(struct Array array)
 {
     if(array.length > 0)
@@ -32,7 +32,7 @@ void Display(struct Array array)
     }
 }
 
-// Appends elements in the end of array which is passed as parameter.
+// Appends elements in the end of array.
 void Append(struct Array *array, int appendingNumber)
 {
     if(array->length < array->size)
@@ -45,7 +45,7 @@ void Append(struct Array *array, int appendingNumber)
     }
 }
 
-// Inserts elements in the targeted position of array which is passed as parameter.
+// Inserts elements in the targeted position of array.
 void Insert(struct Arra *array, int index, int insertedNumber)
 {
     if(array->length < array->size)
@@ -65,7 +65,7 @@ void Insert(struct Arra *array, int index, int insertedNumber)
     }
 }
 
-// Deletes elements in the targeted position of array which is passed as parameter.
+// Deletes elements in the targeted position of array.
 int Delete(struct Array *array, int index)
 {
     int x = 0;
@@ -87,7 +87,78 @@ int Delete(struct Array *array, int index)
     return 0;
 }
 
-// Reverses elements in the array which is passed as parameter.
+// Gets element from the array at a specific index position.
+int Get(struct Array array, int index)
+{
+    if(index >= 0 && index <= array.length)
+    {
+        return array.array[index];
+    }
+
+    return - 1;
+}
+
+// Sets element in the array at a specific index position.
+void Set(struct Array *array, int index, int setValue)
+{
+    if(index >= 0 && index < array->length)
+    {
+        array->array[index] = setValue;
+    }
+}
+
+// Finds most minimum element in the array.
+int Min(struct Array array)
+{
+    int min = array.array[0];
+
+    for(int i = 0; i < array.length; i++)
+    {
+        if(array.array[i] < min)
+        {
+            min = array.array[i];
+        }
+    }
+
+    return min;
+}
+
+// Finds most maximum element in the array.
+int Max(struct Array array)
+{
+    int max = array.array[0];
+
+    for(int i = 0; i < array.length; i++)
+    {
+        if(array.array[i] > max)
+        {
+            max = array.array[i];
+        }
+    }
+
+    return max;
+}
+
+// Sums all the elements from array.
+int Sum(struct Array array)
+{
+    int sum = 0;
+
+    for(int i = 0; i < array.length; i++)
+    {
+        sum = sum + array.array[i];
+    }
+
+    return sum;
+}
+
+// Finds average from the array.
+float Avg(struct Array array)
+{
+    return (float) (sum(array) / array.length);
+}
+
+// Reverses elements in the array.
 void reverseArray(struct Array *array)
 {
     int *brray;
@@ -106,7 +177,7 @@ void reverseArray(struct Array *array)
 }
 
 
-// Shifts array elements in left side in the array which is passed as parameter.
+// Shifts array elements in left side in the array.
 void leftShiftArray(struct Array *array, int shift)
 {
     while(shift != 0)
@@ -122,7 +193,7 @@ void leftShiftArray(struct Array *array, int shift)
     }
 }
 
-// Shifts array elements in right side in the array which is passed as parameter.
+// Shifts array elements in right side in the array.
 void rightShiftArray(struct Array *array, int shift)
 {
     while(shift != 0)
@@ -135,5 +206,45 @@ void rightShiftArray(struct Array *array, int shift)
         array->array[0] = 0;
 
         shift--;
+    }
+}
+
+// Rotates array elements in left side in the array.
+void leftRotateArray(struct Array *array, int rotate)
+{
+    int value;
+
+    while(rotate != 0)
+    {
+        value = array->array[0];
+
+        for(int i = 0; i < array->length - 1; i++)
+        {
+            array->array[i] = array->array[i + 1];
+        }
+
+        array->array[array->length - 1] = value;
+
+        rotate--;
+    }
+}
+
+// Rotate array elements in right side in the array.
+void rightRotateArray(struct Array *array, int rotate)
+{
+    int value;
+
+    while(rotate != 0)
+    {
+        value = array->array[array->length - 1];
+
+        for(int i = array->length - 1; i >= 0; i--)
+        {
+            array->array[i] = array->array[i - 1];
+        }
+
+        array->array[0] = value;
+
+        rotate--;
     }
 }
