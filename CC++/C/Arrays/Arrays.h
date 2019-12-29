@@ -333,3 +333,137 @@ struct Array *sortedUnion(struct Array *arrayOne, struct Array *arrayTwo)
 
     return array;
 }
+
+// Intersection operation between two unsorted arrays.
+struct Array *unsortedIntersection(struct Array *arrayOne, struct Array *arrayTwo)
+{
+    int i = 0, j = 0, k = 0;
+
+    struct Array *array = (struct Array *) malloc(sizeof(struct Array));
+
+    while(i < arrayOne->length)
+    {
+        j = 0;
+
+        while(j < arrayTwo->length)
+        {
+            if(arrayOne->array[i] == arrayTwo->array[j])
+            {
+                array->array[k++] = arrayOne->array[j];
+            }
+
+            j++;
+        }
+
+        i++;
+    }
+
+    array->length = k;
+
+    array->size = k;
+
+    return array;
+}
+
+// Intersection operation between two sorted arrays.
+struct Array *sortedIntersection(struct Array *arrayOne, struct Array *arrayTwo)
+{
+    int i = 0, j = 0, k = 0;
+
+    struct Array *array = (struct Array *) malloc(sizeof(struct Array));
+
+    while(i < arrayOne->length && j < arrayTwo->length)
+    {
+        if(arrayOne->array[i] < arrayTwo->array[j])
+        {
+            i++;
+        }
+        else if(arrayTwo->array[j] < arrayOne->array[i])
+        {
+            j++;
+        }
+        else if(arrayOne->array[i] == arrayTwo->array[j])
+        {
+            array->array[k++] = arrayOne->array[i++];
+
+            j++;
+        }
+    }
+
+    array->length = k;
+
+    array->size = k;
+
+    return array;
+}
+
+// Difference operation between two unsorted arrays.
+struct Array *unsortedDifference(struct Array *arrayOne, struct Array *arrayTwo)
+{
+    int i = 0, j = 0, k = 0;
+
+    struct Array *array = (struct Array *) malloc(sizeof(struct Array));
+
+    while(i < arrayOne->length)
+    {
+        j = 0;
+
+        while(j < arrayTwo->length)
+        {
+            if(arrayOne->array[i] == arrayTwo->array[j])
+            {
+                break;
+            }
+
+            j++;
+        }
+
+        if(j == arrayTwo->length)
+        {
+            array->array[k++] = arrayOne->array[i];
+        }
+
+        i++;
+    }
+
+    array->length = k;
+
+    array->size = k;
+
+    return array;
+}
+
+// Difference operation between two sorted arrays.
+struct Array *sortedDifference(struct Array *arrayOne, struct Array *arrayTwo)
+{
+    int i = 0, j = 0, k = 0;
+
+    struct Array *array = (struct Array *) malloc(sizeof(struct Array));
+
+    while(i < arrayOne->length && j < arrayTwo->length)
+    {
+        if(arrayOne->array[i] < arrayTwo->array[j])
+        {
+            array->array[k++] = arrayOne->array[i++];
+        }
+        else if(arrayTwo->array[j] < arrayOne->array[i])
+        {
+            j++;
+        }
+        else
+        {
+            i++;
+        }
+    }
+
+    for(; i < arrayOne->length; i++)
+    {
+        array->array[k++] = arrayOne->array[i];
+    }
+
+    array->length = k;
+
+    array->size = k;
+
+    return array;
+}
