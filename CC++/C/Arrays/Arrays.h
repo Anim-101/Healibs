@@ -32,6 +32,16 @@ void Display(struct Array array)
     }
 }
 
+// Swaps two index's elements among these indexes in the array
+void Swap(int *x, int *y)
+{
+    int temp = *x;
+
+    *x = *y;
+
+    *y = temp;
+}
+
 // Appends elements in the end of array.
 void Append(struct Array *array, int appendingNumber)
 {
@@ -464,6 +474,84 @@ struct Array *sortedDifference(struct Array *arrayOne, struct Array *arrayTwo)
     array->length = k;
 
     array->size = k;
+
+    return array;
+}
+
+int linearSearch(struct Array *array, int key)
+{
+    for(int i = 0; i < array->length; i++)
+    {
+        if(key == array->array[i])
+        {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+int linearSearchTransposition(struct Array *array, int key)
+{
+    for(int i = 0; i < array->length; i++)
+    {
+        if(key == array->array[i])
+        {
+            Swap(&array->array[i], &array->array[i - 1]);
+
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+int linearSearchMoveToFront(struct Array *array, int key)
+{
+    for(int i = 0; i < array->length; i++)
+    {
+        if(key == array->array[i])
+        {
+            Swap(&array->array[i], &array->array[0]);
+
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+struct Array *Merge(struct Array *arrayOne, struct Array *arrayTwo)
+{
+    int i = 0, j = 0, k = 0;
+
+    struct Array *array = (struct Array *) malloc(sizeof(struct Array));
+
+    while(i < arrayOne->length && j < arrayTwo->array[j])
+    {
+        if(arrayOne->array[i] < arrayTwo->array[j])
+        {
+            array->array[k++] = arrayOne->array[i++];
+        }
+        else
+        {
+            array->array[k++] = arrayTwo->array[j++];
+        }
+    }
+
+    for(i; i < arrayOne->length; i++)
+    {
+        array->array[k++] = arrayOne->array[i];
+    }
+
+    for(; j < arrayTwo->length; j++)
+    {
+        array->array[k++] = arrayTwo->array[j];
+    }
+
+    array->length = arrayOne->length + arrayTwo->length;
+
+    array->size = array->length;
 
     return array;
 }
