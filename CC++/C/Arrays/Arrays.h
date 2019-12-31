@@ -168,6 +168,29 @@ float Avg(struct Array array)
     return (float) (sum(array) / array.length);
 }
 
+// Min and Max in single scan from the array
+void minMaxArraySingleScan(struct Array array)
+{
+    int min = array.array[0], max = array.array[0];
+
+    for(int i = 0; i < array.length; i++)
+    {
+        if(min > array.array[i])
+        {
+            min = array.array[i];
+        }
+        else if(max < array.array[i])
+        {
+            max = array.array[i];
+        }
+    }
+
+    printf("\nMin from Array: %d\n", min);
+
+    printf("\nMax from Array: %d\n", max);
+}
+
+
 // Reverses elements in the array.
 void reverseArray(struct Array *array)
 {
@@ -478,6 +501,7 @@ struct Array *sortedDifference(struct Array *arrayOne, struct Array *arrayTwo)
     return array;
 }
 
+// Linear Search for key from array
 int linearSearch(struct Array *array, int key)
 {
     for(int i = 0; i < array->length; i++)
@@ -491,6 +515,7 @@ int linearSearch(struct Array *array, int key)
     return -1;
 }
 
+//Linear search Transposition version for key from the array
 int linearSearchTransposition(struct Array *array, int key)
 {
     for(int i = 0; i < array->length; i++)
@@ -506,6 +531,7 @@ int linearSearchTransposition(struct Array *array, int key)
     return -1;
 }
 
+// Linear Search Move To Front version for key from the array
 int linearSearchMoveToFront(struct Array *array, int key)
 {
     for(int i = 0; i < array->length; i++)
@@ -521,6 +547,7 @@ int linearSearchMoveToFront(struct Array *array, int key)
     return -1;
 }
 
+// Merges two arrays into one new array and returns the array
 struct Array *Merge(struct Array *arrayOne, struct Array *arrayTwo)
 {
     int i = 0, j = 0, k = 0;
