@@ -582,3 +582,153 @@ struct Array *Merge(struct Array *arrayOne, struct Array *arrayTwo)
 
     return array;
 }
+
+// Finds whether given array is sorted or not
+int isSorted(struct Array array)
+{
+    for(int i = 0; i < array.length - 1; i++)
+    {
+        if(array.array[i] > array.array[i + 1])
+        {
+            return 0;
+        }
+    }
+
+    return 1;
+}
+
+// Rearranges negatives and positives numbers in the array
+void negativePositive(struct Array *array)
+{
+    int i = 0;
+
+    int j = array->length - 1;
+
+    while(i < j)
+    {
+        while(array->array[i] < 0)
+        {
+            i++;
+        }
+
+        while(array->array[j] >= 0)
+        {
+            j--;
+        }
+
+        if(i < j)
+        {
+            Swap(&array->array[i], &array->array[j]);
+        }
+    }
+}
+
+// Finds duplicate elements in sorted array
+void duplicateElementsSorted(struct Array array)
+{
+    int lastDuplicate = 0;
+
+    printf("\nDuplicate Elements in Lists are: ");
+
+    for(int i = 0; i < array.length; i++)
+    {
+        if(array.array[i] == array.array[i + 1] && array.array[i] != lastDuplicate)
+        {
+            printf("%d ", array.array[i]);
+
+            lastDuplicate = array.array[i];
+        }
+    }
+
+    printf("\n");
+}
+
+// Finds duplicate elements in unsorted array
+void duplicateElementsUnSorted(struct Array array)
+{
+    int count = 0;
+
+    for(int i = 0; i < array.length; i++)
+    {
+        count = 1;
+
+        if(array.array[i] != -1)
+        {
+            for(int j = i + 1; j < array.length; j++)
+            {
+                if(array.array[i] == array.array[j])
+                {
+                    count++;
+
+                    array.array[j] = -1;
+                }
+            }
+
+            if(count > 1)
+            {
+                printf("\n%d has appeared %d times in given array list\n", array.array[i], count);
+            }
+        }
+    }
+}
+
+// Finds duplicate elements using hash in unsorted array
+void duplicateElementsUnSortedHash(struct Array array)
+{
+    struct Array hashArray;
+
+    int max = array.array[0];
+
+    for(int i = 0; i < array.length; i++)
+    {
+        if(max < array.array[i])
+        {
+            max = array.array[i];
+        }
+    }
+
+    hashArray.size = max + 1;
+
+    hashArray.length = max + 1;
+
+    for(int i = 0; i <= hashArray.length; i++)
+    {
+        hashArray.array[i] = 0;
+    }
+
+    for(int i = 0; i < array.length; i++)
+    {
+        hashArray.array[array.array[i]]++;
+    }
+
+    for(int i = 0; i <= hashArray.length; i++)
+    {
+        if(hashArray.array[i] > 1)
+        {
+            printf("\n%d has appeared %d times in given array list\n", i, hashArray.array[i]);
+        }
+    }
+}
+
+// Counts duplicate elements in the array
+void countDuplicateElements(struct Array array)
+{
+    int j = 0;
+
+    for(int i = 0; i < array.length; i++)
+    {
+        if(array.array[i] == array.array[i + 1])
+        {
+            j = i + 1;
+
+            while(array.array[j] == array.array[i])
+            {
+                j++;
+            }
+
+            printf("\n%d is appearing %d times in list\n", array.array[i], j - i);
+
+            i = j - 1;
+        }
+    }
+}
