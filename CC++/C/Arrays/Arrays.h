@@ -32,7 +32,7 @@ void Display(struct Array array)
     }
 }
 
-// Swaps two index's elements among these indexes in the array
+// Swaps two index's elements among these indexes in the array.
 void Swap(int *x, int *y)
 {
     int temp = *x;
@@ -67,7 +67,7 @@ void Insert(struct Arra *array, int index, int insertedNumber)
 
         array->array[index] = insertedNumber;
 
-        array->length--;
+        array->length++;
     }
     else
     {
@@ -501,7 +501,7 @@ struct Array *sortedDifference(struct Array *arrayOne, struct Array *arrayTwo)
     return array;
 }
 
-// Linear Search for key from array
+// Linear Search for key from array.
 int linearSearch(struct Array *array, int key)
 {
     for(int i = 0; i < array->length; i++)
@@ -515,7 +515,7 @@ int linearSearch(struct Array *array, int key)
     return -1;
 }
 
-//Linear search Transposition version for key from the array
+// Linear search Transposition version for key from the array.
 int linearSearchTransposition(struct Array *array, int key)
 {
     for(int i = 0; i < array->length; i++)
@@ -531,7 +531,7 @@ int linearSearchTransposition(struct Array *array, int key)
     return -1;
 }
 
-// Linear Search Move To Front version for key from the array
+// Linear Search Move To Front version for key from the array.
 int linearSearchMoveToFront(struct Array *array, int key)
 {
     for(int i = 0; i < array->length; i++)
@@ -547,7 +547,7 @@ int linearSearchMoveToFront(struct Array *array, int key)
     return -1;
 }
 
-// Merges two arrays into one new array and returns the array
+// Merges two arrays into one new array and returns the array.
 struct Array *Merge(struct Array *arrayOne, struct Array *arrayTwo)
 {
     int i = 0, j = 0, k = 0;
@@ -583,7 +583,7 @@ struct Array *Merge(struct Array *arrayOne, struct Array *arrayTwo)
     return array;
 }
 
-// Finds whether given array is sorted or not
+// Finds whether given array is sorted or not.
 int isSorted(struct Array array)
 {
     for(int i = 0; i < array.length - 1; i++)
@@ -597,7 +597,7 @@ int isSorted(struct Array array)
     return 1;
 }
 
-// Rearranges negatives and positives numbers in the array
+// Rearranges negatives and positives numbers in the array.
 void negativePositive(struct Array *array)
 {
     int i = 0;
@@ -623,7 +623,7 @@ void negativePositive(struct Array *array)
     }
 }
 
-// Finds duplicate elements in sorted array
+// Finds duplicate elements in sorted array.
 void duplicateElementsSorted(struct Array array)
 {
     int lastDuplicate = 0;
@@ -643,7 +643,7 @@ void duplicateElementsSorted(struct Array array)
     printf("\n");
 }
 
-// Finds duplicate elements in unsorted array
+// Finds duplicate elements in unsorted array.
 void duplicateElementsUnSorted(struct Array array)
 {
     int count = 0;
@@ -672,7 +672,7 @@ void duplicateElementsUnSorted(struct Array array)
     }
 }
 
-// Finds duplicate elements using hash in unsorted array
+// Finds duplicate elements using hash in unsorted array.
 void duplicateElementsUnSortedHash(struct Array array)
 {
     struct Array hashArray;
@@ -710,7 +710,7 @@ void duplicateElementsUnSortedHash(struct Array array)
     }
 }
 
-// Counts duplicate elements in the array
+// Counts duplicate elements in the array.
 void countDuplicateElements(struct Array array)
 {
     int j = 0;
