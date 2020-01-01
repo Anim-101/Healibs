@@ -165,7 +165,7 @@ int Sum(struct Array array)
 // Finds average from the array.
 float Avg(struct Array array)
 {
-    return (float) (sum(array) / array.length);
+    return (float) (Sum(array) / array.length);
 }
 
 // Min and Max in single scan from the array
