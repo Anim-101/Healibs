@@ -168,7 +168,7 @@ float Avg(struct Array array)
     return (float) (Sum(array) / array.length);
 }
 
-// Min and Max in single scan from the array
+// Min and Max in single scan from the array.
 void minMaxArraySingleScan(struct Array array)
 {
     int min = array.array[0], max = array.array[0];
@@ -289,7 +289,7 @@ struct Array *unSortedUnion(struct Array *arrayOne, struct Array *arrayTwo)
 
     struct Array *array = (struct Array *) malloc(sizeof(struct Array));
 
-    for(i = 0; i < arrayOne; i++)
+    for(i = 0; i < arrayOne->length; i++)
     {
         array->array[i] = arrayOne->array[i];
     }
