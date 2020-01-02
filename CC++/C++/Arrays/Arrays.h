@@ -4,11 +4,8 @@
 
 #include<iostream>
 
-<<<<<<< HEAD
 using namespace std;
 
-=======
->>>>>>> 15689e8aab915bbd87a861c1b00b74a35a8ae220
 class Array
 {
 private:
@@ -19,11 +16,7 @@ private:
 public:
     Array()
     {
-<<<<<<< HEAD
         size = 1;
-=======
-        size = 0;
->>>>>>> 15689e8aab915bbd87a861c1b00b74a35a8ae220
 
         array = new int[size];
 
@@ -77,7 +70,6 @@ public:
     void leftRotateArray(int rotate);
 
     void rightRotateArray(int rotate);
-<<<<<<< HEAD
 
     Array unSortedUnion(Array arrayOne, Array arrayTwo);
 
@@ -108,48 +100,34 @@ public:
     void duplicateElementsUnSortedHash();
 
     void countDuplicateElements();
-=======
->>>>>>> 15689e8aab915bbd87a861c1b00b74a35a8ae220
+
 }
 
 // Displays all available elements from the array.
 void Array::Display()
 {
-    if(length > 0)
+    if(this.length > 0)
     {
-<<<<<<< HEAD
+
         cout << "\nElements are in given array: ";
-=======
-        printf("\nElements are in given array: ");
->>>>>>> 15689e8aab915bbd87a861c1b00b74a35a8ae220
 
         for(int i = 0; i < length; i++)
         {
             printf("%d ", array[i]);
         }
 
-<<<<<<< HEAD
         cout << endl;
     }
     else
     {
         cout << "\nEmpty Array\n";
-=======
-        printf("\n");
     }
-    else
-    {
-        printf("\nEmpty Array\n");
->>>>>>> 15689e8aab915bbd87a861c1b00b74a35a8ae220
-    }
+
 }
 
 // Swaps two index's elements among these indexes in the array.
-<<<<<<< HEAD
+
 void Array::Swap(int *x, int *y)
-=======
-void Array:Swap(int *x, int *y)
->>>>>>> 15689e8aab915bbd87a861c1b00b74a35a8ae220
 {
     int temp = *x;
 
@@ -159,69 +137,39 @@ void Array:Swap(int *x, int *y)
 }
 
 // Appends elements in the end of array.
-<<<<<<< HEAD
 void Array::Append(int appendingNumber)
 {
-    if(this.length < size)
+    if(this.length < this.size)
     {
-        this.array[this.length++] = appendingNumber;
+        this.array[length++] = appendingNumber;
     }
     else
     {
         cout << "\nIncrease Array Size, Length -> Size Buffer Overflow\n";
-=======
-void Array:Append(int appendingNumber)
-{
-    if(length < size)
-    {
-        array[length++] = appendingNumber;
-    }
-    else
-    {
-        printf("\nIncrease Array Size, Length -> Size Buffer Overflow\n");
->>>>>>> 15689e8aab915bbd87a861c1b00b74a35a8ae220
     }
 }
 
 // Inserts elements in the targeted position of array.
-<<<<<<< HEAD
-void Array::Insert(int index, int insertedNumber)
+void Array:Insert(int index, int insertedNumber)
 {
-    if(this.length < size)
+    if(this.length < this.size)
     {
-        for(int i = length; i > index; i--)
+        for(int i = this.length; i > index; i--)
         {
             this.array[i] = this.array[i - 1];
         }
 
         this.array[index] = insertedNumber;
-=======
-void Array:Insert(int index, int insertedNumber)
-{
-    if(length < size)
-    {
-        for(int i = length; i > index; i--)
-        {
-            array[i] = array[i - 1];
-        }
 
-        array[index] = insertedNumber;
->>>>>>> 15689e8aab915bbd87a861c1b00b74a35a8ae220
-
-        length++;
+        this.length++;
     }
     else
     {
-<<<<<<< HEAD
         cout << "\nIncrease Array Size, Length -> Size Buffer Overflow\n";
-=======
-        printf("\nIncrease Array Size, Length -> Size Buffer Overflow\n");
->>>>>>> 15689e8aab915bbd87a861c1b00b74a35a8ae220
     }
 }
 
 // Deleted elements in the targeted position of array.
-<<<<<<< HEAD
 int Array::Delete(int index)
 {
     int x = 0;
@@ -234,20 +182,6 @@ int Array::Delete(int index)
        }
 
        this.length--;
-=======
-int Array:Delete(int index)
-{
-    int x = 0;
-
-    if(index > 0 && index < length)
-    {
-       for(int i = index; i < length - 1; i++)
-       {
-           array[i] = array[i + 1];
-       }
-
-       length--;
->>>>>>> 15689e8aab915bbd87a861c1b00b74a35a8ae220
 
        return x;
     }
@@ -258,39 +192,24 @@ int Array:Delete(int index)
 // Gets element from the array at a specific index position.
 int Array::Get(int index)
 {
-<<<<<<< HEAD
     if(index >= 0 && index <= this.length)
     {
         return this.array[index];
-=======
-    if(index >= 0 && index <= length)
-    {
-        return array[index];
->>>>>>> 15689e8aab915bbd87a861c1b00b74a35a8ae220
     }
 
     return -1;
 }
 
 // Sets element in array at a specific index position.
-<<<<<<< HEAD
 void Array::Set(int index, int setValue)
 {
     if(index >= 0 && index < this.length)
     {
         this.array[index] = setValue;
-=======
-void Array:Set(int index, int setValue)
-{
-    if(index >= 0 && index < length)
-    {
-        array[index] = setValue;
->>>>>>> 15689e8aab915bbd87a861c1b00b74a35a8ae220
     }
 }
 
 // Finds most minimum element in the array.
-<<<<<<< HEAD
 int Array::Min()
 {
     int min = this.array[0];
@@ -300,17 +219,6 @@ int Array::Min()
         if(this.array[i] < min)
         {
             min = this.array[i];
-=======
-int Array:Min()
-{
-    int min = array[0];
-
-    for(int i = 0; i < length; i++)
-    {
-        if(array[i] < min)
-        {
-            min = array[i];
->>>>>>> 15689e8aab915bbd87a861c1b00b74a35a8ae220
         }
     }
 
@@ -318,7 +226,6 @@ int Array:Min()
 }
 
 // Finds most maximum element in the array.
-<<<<<<< HEAD
 int Array::Max()
 {
     int max = this.array[0];
@@ -328,17 +235,7 @@ int Array::Max()
         if(this.array[i] max)
         {
             max = this.array[i];
-=======
-int Array:Max()
-{
-    int max = array[0];
 
-    for(int i = 0; i < length; i++)
-    {
-        if(array[i] max)
-        {
-            max = array[i];
->>>>>>> 15689e8aab915bbd87a861c1b00b74a35a8ae220
         }
     }
 
@@ -346,28 +243,19 @@ int Array:Max()
 }
 
 // Sums all the elements from array.
-<<<<<<< HEAD
 int Array::Sum()
-=======
-int Array:Sum()
->>>>>>> 15689e8aab915bbd87a861c1b00b74a35a8ae220
 {
     int sum = 0;
 
     for(int i = 0; i < length; i++)
     {
-<<<<<<< HEAD
         sum += this.array[i];
-=======
-        sum += array[i];
->>>>>>> 15689e8aab915bbd87a861c1b00b74a35a8ae220
     }
 
     return sum;
 }
 
 // Finds average from the array.
-<<<<<<< HEAD
 float Array::Avg()
 {
     return (float) (this.Sum() / this.length);
@@ -397,66 +285,21 @@ void Array::minMaxArraySingleScan()
 
 // Reverses elements in the array.
 void Array::reverseArray()
-=======
-float Array:Avg()
 {
-    return (float) (Sum() / length);
-}
+    Array brray = new Array();
 
-// Min and Max in single scan from the array.
-void Array:minMaxArraySingleScan()
-{
-    int min = array[0], max = array[0];
-
-    for(int i = 0; i < length; i++)
-    {
-        if(min > array[i])
-        {
-            min = array[i];
-        }
-        else if(max < array[i])
-        {
-            max = array[i];
-        }
-    }
-
-    printf("\nMin from Array: %d\n", min);
-
-    printf("\nMax from Array: %d\n", max);
-}
-
-// Reverses elements in the array.
-void Array:reverseArray()
->>>>>>> 15689e8aab915bbd87a861c1b00b74a35a8ae220
-{
-    int *brray;
-
-    brray = new int[length];
-
-<<<<<<< HEAD
     for(int i = this.length - 1, j = 0; i >= 0; i--, j++)
     {
-        brray[j] = this.array[i];
+        brray.array[j] = this.array[i];
     }
 
     for(int i = 0; i < this.length; i++)
     {
-        this.array[i] = brray[i];
-=======
-    for(int i = length - 1, j = 0; i >= 0; i--, j++)
-    {
-        brray[j] = array[i];
-    }
-
-    for(int i = 0; i < length; i++)
-    {
-        array[i] = brray[i];
->>>>>>> 15689e8aab915bbd87a861c1b00b74a35a8ae220
+        this.array[i] = brray.array[i];
     }
 }
 
 // Shifts array elements in left side in the array.
-<<<<<<< HEAD
 void Array::leftShiftArray(int shift)
 {
     while(shift != 0)
@@ -467,25 +310,12 @@ void Array::leftShiftArray(int shift)
         }
 
         this.array[this.length - 1] = 0;
-=======
-void Array:leftShiftArray(int shift)
-{
-    while(shift != 0)
-    {
-        for(int i = 0; i < length - 1; i++)
-        {
-            array[i] = array[i + 1];
-        }
-
-        array[length - 1] = 0;
->>>>>>> 15689e8aab915bbd87a861c1b00b74a35a8ae220
 
         shift--;
     }
 }
 
 // Shifts array elements in the right side in the array.
-<<<<<<< HEAD
 void Array::rightShiftArray(int shift)
 {
     while(shift != 0)
@@ -496,35 +326,18 @@ void Array::rightShiftArray(int shift)
         }
 
         this.array[0] = 0;
-=======
-void Array:rightShiftArray(int shift)
-{
-    while(shift != 0)
-    {
-        for(int i = length - 1; i >= 0; i--)
-        {
-            array[i] = array[i - 1];
-        }
-
-        array[0] = 0;
->>>>>>> 15689e8aab915bbd87a861c1b00b74a35a8ae220
 
         shift--;
     }
 }
 
 // Rotates array elements in the left in the array.
-<<<<<<< HEAD
 void Array::leftRotateArray(int rotate)
-=======
-void Array:leftRotateArray(int rotate)
->>>>>>> 15689e8aab915bbd87a861c1b00b74a35a8ae220
 {
     int value;
 
     while(rotate != 0)
     {
-<<<<<<< HEAD
         value = this.array[0];
 
         for(int i = 0; i < this.length - 1; i++)
@@ -533,33 +346,19 @@ void Array:leftRotateArray(int rotate)
         }
 
         this.array[length - 1] = value;
-=======
-        value = array[0];
-
-        for(int i = 0; i < length - 1; i++)
-        {
-            array[i] = array[i + 1];
-        }
-
-        array[length - 1] = value;
->>>>>>> 15689e8aab915bbd87a861c1b00b74a35a8ae220
 
         rotate--;
     }
 }
 
 // Rotate array elements in right side in the array.
-<<<<<<< HEAD
+
 void Array::rightRotateArray(int rotate)
-=======
-void Array:rightRotateArray(int rotate)
->>>>>>> 15689e8aab915bbd87a861c1b00b74a35a8ae220
 {
     int value;
 
     while(rotate != 0)
     {
-<<<<<<< HEAD
         value = this.array[this.length - 1];
 
         for(int i = this.length - 1; i >= 0; i--)
@@ -1016,17 +815,4 @@ void countDuplicateElements()
             i = j - 1;
         }
     }
-=======
-        value = array[length - 1];
-
-        for(int i = length - 1; i >= 0; i--)
-        {
-            array[i] = array[i - 1];
-        }
-
-        array[0] = value;
-
-        rotate--;
-    }
->>>>>>> 15689e8aab915bbd87a861c1b00b74a35a8ae220
 }
