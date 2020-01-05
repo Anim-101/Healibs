@@ -795,7 +795,7 @@ void Array::duplicateElementsUnSortedHash()
 }
 
 // Counts duplicate elements in the array
-void countDuplicateElements()
+void Array::countDuplicateElements()
 {
     int j = 0;
 
