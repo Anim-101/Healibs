@@ -1,1 +1,1 @@
-## Header Libraries Based on Array Structures in CC++ Programming Languages.
+## Header Libraries Based on Array Structures in C Programming Languages.
