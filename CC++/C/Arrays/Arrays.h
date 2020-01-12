@@ -56,7 +56,7 @@ void Append(struct Array *array, int appendingNumber)
 }
 
 // Inserts elements in the targeted position of array.
-void Insert(struct Arra *array, int index, int insertedNumber)
+void Insert(struct Array *array, int index, int insertedNumber)
 {
     if(array->length < array->size)
     {
@@ -203,7 +203,7 @@ void reverseArray(struct Array *array)
         brray[j] = array->array[i];
     }
 
-    for(int i = 0; i < array->lenght; i++)
+    for(int i = 0; i < array->length; i++)
     {
         array->array[i] = brray[i];
     }
